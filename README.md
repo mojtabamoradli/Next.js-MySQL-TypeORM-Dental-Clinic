@@ -7,4 +7,4 @@ Techs I used: Next.js 13.4.5 (page router), MySQL, TypeORM, React-Hook-Form, Yup
 
 Live Demo: https://heartfelt-lamington-3fef0d.netlify.app/
 
-![Features](https://github.com/mojtabamoradli/Dental_Clinic/blob/main/Cover.png)
+![Features](https://github.com/mojtabamoradli/Next.js-MySQL-TypeORM-Dental-Clinic/blob/main/Cover.jpg)
