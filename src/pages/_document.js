@@ -6,27 +6,17 @@ export default function Document() {
       <Head>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="author" content="Mojtaba Moradli" />
-        <meta
-          name="description"
-          content="Mojtaba Moradli | Frontend Engineer"
-        />
-        <meta
-          name="keywords"
-          content="Engineering, Web Development, Frontend, Software, Programming, React.js, Next.js, Node.js, JavaScript, Moradli, mojtabamoradli"
-        />
-        <link href="https://mojtabamoradli.ir/" rel="canonical" />
+        <meta name="author" content="" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <link href="" rel="canonical" />
         <meta name="theme-color" content="#D2D2D2" />
         <link rel="manifest" href="/manifest.json" />
-        <link
-          rel="icon"
-          href="mojtabamoradli-favicon.ico"
-          type="image/x-icon"
-        />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="mojtabamoradli-apple-touch-icon.png"
+          href="apple-touch-icon.png"
         />
       </Head>
       <body>

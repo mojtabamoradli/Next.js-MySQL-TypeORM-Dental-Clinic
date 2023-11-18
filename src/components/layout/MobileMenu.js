@@ -1,93 +1,39 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
-import MobileMenu from "./MobileMenu";
-import { useRouter } from "next/router";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useEffect, useRef, useState } from "react";
 
-const Header = () => {
+const MobileMenu = ({ open, close }) => {
   const router = useRouter();
-  const [openMobileMenu, setMobileMenu] = useState(false);
-
-  const closeMobileMenu = () => {
-    setMobileMenu(false);
-  };
 
   useEffect(() => {
-    const smoothScrollToTarget = () => {
-      const hash = window.location.hash.substr(1);
-      const target = document.getElementById(hash);
-
-      if (target) {
-        const offset = 100;
-        const targetOffsetTop =
-          target.getBoundingClientRect().top + window.scrollY;
-        const scrollToPosition = targetOffsetTop - offset;
-
-        window.scrollTo({
-          top: scrollToPosition,
-          behavior: "smooth",
-        });
-      }
-    };
-
-    if (window.location.hash) {
-      smoothScrollToTarget();
-    }
-
-    window.addEventListener("hashchange", smoothScrollToTarget);
-
-    return () => {
-      window.removeEventListener("hashchange", smoothScrollToTarget);
-    };
-  }, []);
-
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [visible, setVisible] = useState(true);
-
-  const handleScroll = () => {
-    const currentScrollPos = window.pageYOffset;
-    const visible = prevScrollPos > currentScrollPos || currentScrollPos < 10;
-
-    setPrevScrollPos(currentScrollPos);
-    setVisible(visible);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [prevScrollPos, visible]);
+    if (router.asPath) close();
+  }, [router.asPath]);
 
   return (
     <div
-      className={`flex justify-center items-center w-full fixed top-0 shadow bg-white z-[100] rounded-b-xl transition-all duration-300 ${
-        visible ? "" : "sm:transform sm:translate-y-[-100%] sm:opacity-0"
-      }`}
+      onClick={close}
+      className={`${
+        open &&
+        "bg-[#00000020] fixed left-0 w-[100%] h-[100%] top-0 overflow-clip"
+      } flex mx-auto justify-center transition-all duration-300 z-[100]`}
     >
-      <div className="flex animate-appear justify-center items-center w-full h-fit fixed top-0 shadow bg-white z-[100] rounded-b-xl">
-        <div className="flex justify-between max-sm:px-5 sm:px-8 items-center w-full h-fit max-w-[1920px] mx-auto fixed top-0  shadow bg-white z-[100] rounded-b-xl">
-          <div className="flex  my-3 justify-center items-center max-sm:mx-auto max-sm:justify-between max-sm:w-full">
-            <div className="flex items-center">
-              <Image
-                onClick={() => router.push("/")}
-                className="w-[100px] max-sm:w-[70px] h-auto cursor-pointer"
-                src="/images/logo.png"
-                width={200}
-                height={200}
-              />
-              <p
-                onClick={() => router.push("/")}
-                className="flex flex-col whitespace-nowrap cursor-pointer"
-              >
-                <span>کلینیک دندانپزشکی</span>
-                <span>دکتر علی علائی</span>
-              </p>
-            </div>
+      <div
+        className={`fixed inset-0   ${
+          open
+            ? "transform translate-x-0"
+            : "transform translate-x-full opacity-0"
+        } transition-transform duration-300 `}
+      >
+        <div
+          onClick={(event) => event.stopPropagation()}
+          className={`bg-[#ffffff]  fixed top-0 w-[320px] h-full shadow font-Irancell_Light  cursor-auto`}
+        >
+          <div className="w-full flex justify-between items-center">
+            <div></div>
             <button
-              className=" sm:hidden  items-center "
-              onClick={() => setMobileMenu(true)}
+              className="rotate-45 hover-opacity-70 transition-all duration-300"
+              onClick={close}
             >
               <svg
                 width="24"
@@ -97,22 +43,22 @@ const Header = () => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M21 7.75H3C2.59 7.75 2.25 7.41 2.25 7C2.25 6.59 2.59 6.25 3 6.25H21C21.41 6.25 21.75 6.59 21.75 7C21.75 7.41 21.41 7.75 21 7.75Z"
-                  fill="#292D32"
+                  d="M18 12.75H6C5.59 12.75 5.25 12.41 5.25 12C5.25 11.59 5.59 11.25 6 11.25H18C18.41 11.25 18.75 11.59 18.75 12C18.75 12.41 18.41 12.75 18 12.75Z"
+                  fill="#000000"
                 />
                 <path
-                  d="M21 12.75H3C2.59 12.75 2.25 12.41 2.25 12C2.25 11.59 2.59 11.25 3 11.25H21C21.41 11.25 21.75 11.59 21.75 12C21.75 12.41 21.41 12.75 21 12.75Z"
-                  fill="#292D32"
-                />
-                <path
-                  d="M21 17.75H3C2.59 17.75 2.25 17.41 2.25 17C2.25 16.59 2.59 16.25 3 16.25H21C21.41 16.25 21.75 16.59 21.75 17C21.75 17.41 21.41 17.75 21 17.75Z"
-                  fill="#292D32"
+                  d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V6C11.25 5.59 11.59 5.25 12 5.25C12.41 5.25 12.75 5.59 12.75 6V18C12.75 18.41 12.41 18.75 12 18.75Z"
+                  fill="#000000"
                 />
               </svg>
             </button>
           </div>
-          <div className="flex  justify-between max-sm:hidden items-center gap-5 font-Irancell_Light  whitespace-nowrap transition-all duration-300">
-            <div className="flex gap-5 transition-all duration-300">
+
+          <div className="flex flex-col justify-between  items-center gap-2">
+            <div className="flex flex-col w-[100px] h-[100px] justify-center items-center max-sm:mx-auto max-sm:mt-4">
+              <Image src="/images/logo.png" width={200} height={200} />
+            </div>
+            <div className="flex flex-col gap-2">
               <button
                 onClick={() => router.push("/")}
                 className="hover:text-[#29D8DB] transition-all duration-300"
@@ -155,9 +101,8 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <MobileMenu open={openMobileMenu} close={closeMobileMenu} />
     </div>
   );
 };
 
-export default Header;
+export default MobileMenu;

@@ -4,7 +4,6 @@ import {
   connectToMySQL,
 } from "@/databases/connectToMySQL";
 import { Appointment } from "@/entities/Appointment.ts";
-import { Between, ILike } from "typeorm";
 
 async function handler(request, response) {
   if (request.method !== "GET") {

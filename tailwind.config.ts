@@ -105,6 +105,7 @@ module.exports = {
   plugins: [],
   variants: {
     extend: {
+
       textColor: ["visited", "hover"],
     },
   },

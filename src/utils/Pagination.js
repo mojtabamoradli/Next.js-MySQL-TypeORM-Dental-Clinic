@@ -19,7 +19,7 @@ const Pagination = ({
       >
         <svg
           id="first"
-          className="rotate-180"
+          className="rotate-180 max-sm:hidden"
           width="24"
           height="24"
           viewBox="0 0 24 24"
@@ -153,7 +153,7 @@ const Pagination = ({
           totalPages > currentPage && setCurrentPage(currentPage + 1)
         }
         disabled={totalPages <= currentPage}
-        className=" h-[35px] disabled:text-gray-200 hover:text-gray-200 text-gray-900 flex p-1 items-center justify-center"
+        className="max-sm:hidden h-[35px] disabled:text-gray-200 hover:text-gray-200 text-gray-900 flex p-1 items-center justify-center"
       >
         <svg
           id="next"
@@ -186,6 +186,7 @@ const Pagination = ({
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          className="max-sm:hidden"
         >
           <path
             d="M8.74005 11.9999C8.74005 11.8099 8.81015 11.6199 8.96015 11.4699L11.9601 8.46994C12.2501 8.17994 12.73 8.17994 13.02 8.46994C13.31 8.75994 13.31 9.23994 13.02 9.52994L10.55 11.9999L13.02 14.4699C13.31 14.7599 13.31 15.2399 13.02 15.5299C12.73 15.8199 12.2501 15.8199 11.9601 15.5299L8.96015 12.5299C8.81015 12.3799 8.74005 12.1899 8.74005 11.9999Z"

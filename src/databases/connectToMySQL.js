@@ -4,6 +4,7 @@ import { OpenHour } from "@/entities/OpenHour.ts";
 import { WaitingTime } from "@/entities/WaitingTime.ts";
 import { ClosedWeekDay } from "@/entities/ClosedWeekDay.ts";
 import { ClosedDate } from "@/entities/ClosedDate.ts";
+import { User } from "@/entities/User.ts";
 
 
 let initialized = false;
@@ -15,7 +16,7 @@ const connectToMySQL = new DataSource({
   password: process.env.NEXT_PUBLIC_MYSQL_PASSWORD,
   database: process.env.NEXT_PUBLIC_MYSQL_DATABASE_NAME,
   synchronize: true,
-  entities: [Appointment, OpenHour, WaitingTime, ClosedWeekDay, ClosedDate],
+  entities: [Appointment, OpenHour, WaitingTime, ClosedWeekDay, ClosedDate, User],
 });
 
 async function initializeDatabase() {

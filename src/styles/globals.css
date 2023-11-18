@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.account {
+  background-image: url("/images/background.jpg");
+  background-size: cover;
+}
