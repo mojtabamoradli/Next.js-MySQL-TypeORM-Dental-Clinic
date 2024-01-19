@@ -8,3 +8,15 @@ Techs I used: Next.js 13.4.5 (page router), MySQL, TypeORM, React-Hook-Form, Yup
 Live Demo: https://heartfelt-lamington-3fef0d.netlify.app/
 
 ![Features](https://github.com/mojtabamoradli/Next.js-MySQL-TypeORM-Dental-Clinic/blob/main/Cover.jpg)
+
+
+### .env
+```
+NEXT_PUBLIC_MYSQL_HOST=
+NEXT_PUBLIC_MYSQL_USERNAME=
+NEXT_PUBLIC_MYSQL_PASSWORD=
+NEXT_PUBLIC_MYSQL_DATABASE_NAME=
+NEXT_PUBLIC_MYSQL_PORT=
+JWT_SECRET_KEY=
+NEXT_PUBLIC_NESHAN_MAP_API_KEY=
+```
